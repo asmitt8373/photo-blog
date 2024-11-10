@@ -1,0 +1,30 @@
+<div class="w-[600px] mx-auto mt-[80px] mb-[10px]">
+  <button id="upload_widget" class="cloudinary-button">Upload files</button>
+</div>
+<form id="create-edit-form" onsubmit="event.preventDefault()" hx-swap="outerHTML" hx-target="body" hx-boost="true" hx-trigger="submit" <%= it.hxAttribute %> class="w-[600px] mx-auto m-[80px] mt-[0]">
+  <% if (it.post?.post_id){%>
+  <input name="post_id" type="hidden" value="<%= it.post.post_id %>" />
+  <% } %>
+  <label class="input input-bordered flex items-center gap-2 mb-5">
+    Image Url
+    <input type="text" class="grow" name="image_url" value="<%= it.post ? it?.post.image_url : '' %>" />
+  </label>
+
+  <label class="input input-bordered flex items-center gap-2 mb-5">
+    Caption
+    <input type="text" class="grow" name="caption" value="<%= it.post ? it.post.caption : '' %>" />
+  </label>
+  <div class="grid grid-cols-3 gap-[15px]">
+    <select class="select select-bordered col-span-1" name="tags">
+      <% it.tags.forEach(function(tag){ %>
+      <option value="<%= tag%>" <%= it.post?.tags === tag ? 'selected' : '' %>><%= tag %></option>
+      <% }) %>
+    </select>
+    <div class="col-span-2 flex justify-between">
+      <button class="btn btn-outline btn-success w-[50%]" type="submit">
+        Submit
+      </button>
+      <button class="btn btn-outline btn-error w-[50%]">Cancel</button>
+    </div>
+  </div>
+</form>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<%~ include("partials/head.eta")%>
+<style>
+  div {
+    border: 1px solid red;
+  }
+</style>
+
+<body class="p-8" data-gallery-photos="<%= JSON.stringify(it.galleryPhotos) %>">
+  <%~ include("partials/navigation.eta", it)%>
+  <script defer>
+    const body = document.querySelector("body").dataset;
+    const data = JSON.parse(body.galleryPhotos);
+    const photoGallery = GLightbox({
+      elements: data
+    });
+  </script>
+
+  <div class="flex flex-wrap w-[90vw] gap-[30px] mx-auto">
+
+    <%it.filteredPosts.forEach((post, index) => { %>
+    <img data-gallery="gallery" data-type="image" onclick="photoGallery.openAt(<%= index %>)" class="glightbox mr-[20px] my-[20px] ml-[30px] object-cover w-[120px] h-[120px] basis-1/2  md:max-w-[260px] md:w-[260px] md:max-h-[260px] md:h-[260px] md:basis-1/4" src="<%= post.image_url%>" alt="<%= post.caption%>" data-gallery="gallery1" />
+    <%})%>
+  </div>
+</body>

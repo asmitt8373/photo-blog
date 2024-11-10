@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<%~ include("partials/head.eta")%>
+
+<body>
+  <%~ include("partials/form.eta", it)%>
+  <div class="overflow-x-auto w-[600px] mx-auto">
+    <table class="table">
+      <!-- head -->
+      <thead>
+        <tr>
+          <th>Image</th>
+          <th>Caption</th>
+          <th>Tags</th>
+          <th></th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+
+        <% it.posts.forEach(function(post){ %>
+        <tr>
+          <td>
+            <div class="avatar">
+              <div class="w-16 rounded">
+                <img src="<%= post.image_url %>" alt="<%= post.caption %>" />
+              </div>
+          </td>
+          <td><%= post.caption %></td>
+          <td><%= post.tags %></td>
+          <td>
+            <button hx-delete="/posts/<%= post.post_id %>" hx-boost="true" hx-target="body">Delete</button>
+          </td>
+          <td>
+            <button hx-get="/posts/<%= post.post_id %>/get-edit-form" hx-target="#create-edit-form" hx-swap="outerHTML">Edit</button>
+          </td>
+        </tr>
+        <% }) %>
+      </tbody>
+    </table>
+  </div>
+  <script src="https://upload-widget.cloudinary.com/latest/global/all.js" type="text/javascript"></script>
+
+  <script type="text/javascript">
+    var myWidget = cloudinary.createUploadWidget({
+      cloudName: 'dfq3x6yro',
+      uploadPreset: 'ml_default'
+    }, (error, result) => {
+      if (error) {
+        console.log(error);
+        return
+      }
+      if (!error && result && result.event === "success") {
+        console.log('Done! Here is the image info: ', result.info);
+        const imageUrlInput = document.querySelector("input[name='image_url']");
+        imageUrlInput.value = result.info.secure_url;
+        console.log(imageUrlInput);
+      }
+    })
+
+    document.getElementById("upload_widget").addEventListener("click", function() {
+      myWidget.open();
+    }, false);
+  </script>
+</body>
+
+</html>

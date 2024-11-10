@@ -1,0 +1,37 @@
+{
+  "name": "portfolioprojects",
+  "type": "module",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon server",
+    "types": "node database/makeTypes.js",
+    "migrate": "node database/migrate.js",
+    "reset": "node database/reset.js",
+    "watch": "node database/watch.js",
+    "tailwind:css": "npx tailwindcss -i ./public/styles/tailwind.css -o ./public/styles/style.css --watch"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "@fastify/formbody": "^7.4.0",
+    "@fastify/static": "^7.0.4",
+    "@fastify/view": "^9.1.0",
+    "autoprefixer": "^10.4.20",
+    "eta": "^3.4.1",
+    "fastify": "^4.28.1",
+    "flyweight-client": "^1.0.14",
+    "flyweight-sqlite": "^1.0.0",
+    "flyweightjs": "^2.0.47",
+    "glightbox": "^3.3.0",
+    "nodemon": "^3.1.4",
+    "postcss": "^8.4.41",
+    "postcss-cli": "^11.0.0",
+    "tailwindcss": "^3.4.10"
+  },
+  "devDependencies": {
+    "daisyui": "^4.12.10"
+  }
+}
