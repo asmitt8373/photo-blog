@@ -1948,6 +1948,20 @@ html {
   }
 }
 
+.btn-sm {
+  height: 2rem;
+  min-height: 2rem;
+  padding-left: 0.75rem;
+  padding-right: 0.75rem;
+  font-size: 0.875rem;
+}
+
+.btn-square:where(.btn-sm) {
+  height: 2rem;
+  width: 2rem;
+  padding: 0px;
+}
+
 .btn-circle:where(.btn-xs) {
   height: 1.5rem;
   width: 1.5rem;
@@ -2203,10 +2217,6 @@ html {
   margin-bottom: 10px;
 }
 
-.mb-\[50px\] {
-  margin-bottom: 50px;
-}
-
 .mb-\[80px\] {
   margin-bottom: 80px;
 }
@@ -2221,10 +2231,6 @@ html {
 
 .ml-\[30px\] {
   margin-left: 30px;
-}
-
-.ml-\[40px\] {
-  margin-left: 40px;
 }
 
 .mr-\[20px\] {
@@ -2275,20 +2281,16 @@ html {
   height: 1.25rem;
 }
 
-.h-\[500px\] {
-  height: 500px;
-}
-
 .h-\[120px\] {
   height: 120px;
 }
 
-.h-\[60px\] {
-  height: 60px;
+.h-\[500px\] {
+  height: 500px;
 }
 
-.max-h-\[120px\] {
-  max-height: 120px;
+.h-\[60px\] {
+  height: 60px;
 }
 
 .w-16 {
@@ -2311,6 +2313,10 @@ html {
   width: 16rem;
 }
 
+.w-\[120px\] {
+  width: 120px;
+}
+
 .w-\[450px\] {
   width: 450px;
 }
@@ -2331,12 +2337,8 @@ html {
   width: 90vw;
 }
 
-.w-\[120px\] {
-  width: 120px;
-}
-
-.max-w-\[120px\] {
-  max-width: 120px;
+.w-\[300px\] {
+  width: 300px;
 }
 
 .max-w-\[1300px\] {
@@ -2345,10 +2347,6 @@ html {
 
 .max-w-\[150px\] {
   max-width: 150px;
-}
-
-.max-w-\[300px\] {
-  max-width: 300px;
 }
 
 .flex-1 {
@@ -2419,17 +2417,13 @@ html {
   border-width: 1px;
 }
 
+.bg-\[rgba\(0\2c 0\2c 0\2c \.5\)\] {
+  background-color: rgba(0,0,0,.5);
+}
+
 .bg-base-100 {
   --tw-bg-opacity: 1;
   background-color: var(--fallback-b1,oklch(var(--b1)/var(--tw-bg-opacity)));
-}
-
-.bg-\[rgba\(0\2c 0\2c 0\2c \.3\)\] {
-  background-color: rgba(0,0,0,.3);
-}
-
-.bg-\[rgba\(0\2c 0\2c 0\2c \.5\)\] {
-  background-color: rgba(0,0,0,.5);
 }
 
 .object-cover {
@@ -2455,11 +2449,6 @@ html {
   line-height: 2.5rem;
 }
 
-.text-xl {
-  font-size: 1.25rem;
-  line-height: 1.75rem;
-}
-
 .opacity-0 {
   opacity: 0;
 }
@@ -2470,26 +2459,14 @@ html {
   box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }
 
-.transition {
-  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, -webkit-backdrop-filter;
-  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
-  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter, -webkit-backdrop-filter;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  transition-duration: 150ms;
+.filter {
+  filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
 }
 
 .transition-opacity {
   transition-property: opacity;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   transition-duration: 150ms;
-}
-
-.duration-300 {
-  transition-duration: 300ms;
-}
-
-.duration-1000 {
-  transition-duration: 1000ms;
 }
 
 .duration-500 {
@@ -2500,69 +2477,21 @@ html {
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.group:hover .group-hover\:block {
-  display: block;
-}
-
-.group:hover .group-hover\:flex {
-  display: flex;
-}
-
 .group:hover .group-hover\:opacity-100 {
   opacity: 1;
 }
 
 @media (min-width: 768px) {
-  .md\:h-\[315px\] {
-    height: 315px;
-  }
-
-  .md\:h-\[280px\] {
-    height: 280px;
-  }
-
-  .md\:h-\[220px\] {
-    height: 220px;
-  }
-
   .md\:h-\[260px\] {
     height: 260px;
-  }
-
-  .md\:max-h-\[315px\] {
-    max-height: 315px;
-  }
-
-  .md\:max-h-\[220px\] {
-    max-height: 220px;
   }
 
   .md\:max-h-\[260px\] {
     max-height: 260px;
   }
 
-  .md\:w-\[315px\] {
-    width: 315px;
-  }
-
-  .md\:w-\[280px\] {
-    width: 280px;
-  }
-
-  .md\:w-\[220px\] {
-    width: 220px;
-  }
-
   .md\:w-\[260px\] {
     width: 260px;
-  }
-
-  .md\:max-w-\[315px\] {
-    max-width: 315px;
-  }
-
-  .md\:max-w-\[220px\] {
-    max-width: 220px;
   }
 
   .md\:max-w-\[260px\] {

@@ -32,18 +32,12 @@ fastify.register(fastifyView, {
 fastify.register(formBody);
 
 const TAG_LIST = [
-  "Nature", // get rid of
-  "City", // get rid of
-  "Landscape",
-  // into the wild
-  // mountain majesty
-  //tidal tranquility
-  // waterfalls
-  // colour
-  // architecture
-  // beach/ coast / seascapes
-  "Skateboarding", // get rid of it
-  "Mountains", // get rid of
+  // desert oasis
+  "Wilderness",
+  "Experimental",
+  "Places&Spaces",
+  "Seaside",
+  "Waterfalls",
   "Black&White",
 ];
 
@@ -56,45 +50,51 @@ fastify.get("/", async (request, reply) => {
       post.image_url = `${splitUrl[0]}/upload/c_fill,h_400,w_400/${splitUrl[1]}`;
       return post;
     });
-    const naturePosts = posts
-      .filter((p) => p.tags === "Nature")
+    const wildernessPosts = posts
+      .filter((p) => p.tags === "Wilderness")
       .slice(0, NUMBER_OF_PHOTOS);
     const blackAndWhitePosts = posts
       .filter((p) => p.tags === "Black&White")
       .slice(0, NUMBER_OF_PHOTOS);
-    const cityPosts = posts
-      .filter((p) => p.tags === "City")
+    const experimentalPosts = posts
+      .filter((p) => p.tags === "Experimental")
       .slice(0, NUMBER_OF_PHOTOS);
-    const landscapePosts = posts
-      .filter((p) => p.tags === "Landscape")
+    const placesAndSpacesPosts = posts
+      .filter((p) => p.tags === "Places&Spaces")
       .slice(0, NUMBER_OF_PHOTOS);
-    const skateboardingPosts = posts
-      .filter((p) => p.tags === "Skateboarding")
+    const seasidePosts = posts
+      .filter((p) => p.tags === "Seaside")
       .slice(0, NUMBER_OF_PHOTOS);
-    const mountainPosts = posts
-      .filter((p) => p.tags === "Mountains")
+    const waterfallPosts = posts
+      .filter((p) => p.tags === "Waterfalls")
       .slice(0, NUMBER_OF_PHOTOS);
     return reply.viewAsync("homePage.eta", {
       posts,
-      cityPosts,
-      landscapePosts,
-      skateboardingPosts,
-      mountainPosts,
-      naturePosts,
+      experimentalPosts,
+      placesAndSpacesPosts,
+      seasidePosts,
+      waterfallPosts,
+      wildernessPosts,
       blackAndWhitePosts,
     });
   } catch (err) {
     console.error(err);
   }
 });
-fastify.get("/posts/tags/:tag", async (request, reply) => {
+// admin page select filter below
+fastify.get("/admin/posts/tag", async (request, reply) => {
   try {
-    console.log(request.params);
-    const posts = await db.posts.get();
-    const filteredPosts = posts.filter(
-      (p) => p.tags?.toLowerCase() === request.params.tag?.toLowerCase()
-    );
-    const galleryPhotos = filteredPosts.map((post) => {
+    console.log(request.query);
+    const postsArr = await db.posts.get({
+      tags: request.query.tag,
+    });
+    const posts = postsArr.map((post) => {
+      const splitUrl = post.image_url.split("/upload/");
+      post.image_url = `${splitUrl[0]}/upload/c_fill,h_150,w_150/${splitUrl[1]}`;
+      return post;
+    });
+    console.log(posts);
+    const galleryPhotos = posts.map((post) => {
       return {
         href: post.image_url,
         type: "image",
@@ -102,9 +102,9 @@ fastify.get("/posts/tags/:tag", async (request, reply) => {
         description: "",
       };
     });
-    return reply.viewAsync("tagPage.eta", {
+    return reply.viewAsync("admin.eta", {
       posts,
-      filteredPosts,
+      tags: TAG_LIST,
       galleryPhotos,
     });
   } catch (err) {
@@ -113,19 +113,52 @@ fastify.get("/posts/tags/:tag", async (request, reply) => {
 });
 
 fastify.get("/admin", async (request, reply) => {
-  const posts = await db.posts.get(
-    {},
-    {
-      orderBy: "post_id",
-      desc: true,
-    }
-  );
   return reply.viewAsync("admin.eta", {
     tags: TAG_LIST,
-    posts,
+    posts: [],
     hxAttribute: `hx-post=/posts`,
   });
 });
+// tag page below
+fastify.get("/posts/tags/:tag", async (request, reply) => {
+  function randomWholeNum() {
+    return Math.floor(Math.random() * 10);
+  }
+  try {
+    const postsArr = await db.posts.get({
+      tags: request.params.tag,
+    });
+
+    const posts = postsArr
+      .map((post) => {
+        const splitUrl = post.image_url.split("/upload/");
+        return {
+          ...post,
+          order: randomWholeNum(),
+          image_url: `${splitUrl[0]}/upload/c_fill,h_300,w_300/${splitUrl[1]}`,
+        };
+      })
+      .sort((a, b) => a.order - b.order);
+    const galleryPhotos = postsArr.map((post) => {
+      return {
+        href: post.image_url,
+        type: "image",
+        title: "",
+        description: "",
+      };
+    });
+
+    return reply.viewAsync("tagPage.eta", {
+      tags: TAG_LIST,
+      posts,
+      galleryPhotos,
+      hxAttribute: `hx-post=/posts`,
+    });
+  } catch (err) {
+    console.error(err);
+  }
+});
+
 // make a variable for all the options, create a post/ insert
 // create the for loop with the variable consisted in it
 fastify.post("/posts", async (request, reply) => {

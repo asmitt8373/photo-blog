@@ -5,6 +5,13 @@
 <body>
   <%~ include("partials/form.eta", it)%>
   <div class="overflow-x-auto w-[600px] mx-auto">
+    <form onsubmit="event.preventDefault()" class="flex justify-between items-center w-[300px]" hx-target="body" hx-trigger="click from:#submit-btn" hx-swap="innerHTML">
+      <select id="tag" hx-get="/admin/posts/tag" hx-target="body" hx-boost="true" hx-vals="js:{tag: document.querySelector('#tag').value}" class="select select-bordered col-span-1" name="tags">
+        <% it.tags.forEach(function(tag){ %>
+        <option value="<%= tag%>" <%= it.post?.tags === tag ? 'selected' : '' %>><%= tag %></option>
+        <% }) %>
+      </select>
+    </form>
     <table class="table">
       <!-- head -->
       <thead>
@@ -41,26 +48,28 @@
   </div>
   <script src="https://upload-widget.cloudinary.com/latest/global/all.js" type="text/javascript"></script>
 
-  <script type="text/javascript">
-    var myWidget = cloudinary.createUploadWidget({
-      cloudName: 'dfq3x6yro',
-      uploadPreset: 'ml_default'
-    }, (error, result) => {
-      if (error) {
-        console.log(error);
-        return
-      }
-      if (!error && result && result.event === "success") {
-        console.log('Done! Here is the image info: ', result.info);
-        const imageUrlInput = document.querySelector("input[name='image_url']");
-        imageUrlInput.value = result.info.secure_url;
-        console.log(imageUrlInput);
-      }
-    })
+  <script type="text/javascript" defer>
+    (() => {
+      var myWidget = cloudinary.createUploadWidget({
+        cloudName: 'dfq3x6yro',
+        uploadPreset: 'ml_default'
+      }, (error, result) => {
+        if (error) {
+          console.log(error);
+          return
+        }
+        if (!error && result && result.event === "success") {
+          console.log('Done! Here is the image info: ', result.info);
+          const imageUrlInput = document.querySelector("input[name='image_url']");
+          imageUrlInput.value = result.info.secure_url;
+          console.log(imageUrlInput);
+        }
+      })
 
-    document.getElementById("upload_widget").addEventListener("click", function() {
-      myWidget.open();
-    }, false);
+      document.getElementById("upload_widget").addEventListener("click", function() {
+        myWidget.open();
+      }, false);
+    })()
   </script>
 </body>
 
