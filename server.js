@@ -7,6 +7,7 @@ import fastifyStatic from "@fastify/static";
 import path from "path";
 import { fileURLToPath } from "url";
 import formBody from "@fastify/formbody";
+import basicAuth from "@fastify/basic-auth";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -80,44 +81,6 @@ fastify.get("/", async (request, reply) => {
   } catch (err) {
     console.error(err);
   }
-});
-// admin page select filter below
-fastify.get("/admin/posts/tag", async (request, reply) => {
-  try {
-    console.log(request.query);
-    const postsArr = await db.posts.get({
-      tags: request.query.tag,
-    });
-    const posts = postsArr.map((post) => {
-      const splitUrl = post.image_url.split("/upload/");
-      post.image_url = `${splitUrl[0]}/upload/c_fill,h_150,w_150/${splitUrl[1]}`;
-      return post;
-    });
-    console.log(posts);
-    const galleryPhotos = posts.map((post) => {
-      return {
-        href: post.image_url,
-        type: "image",
-        title: "",
-        description: "",
-      };
-    });
-    return reply.viewAsync("admin.eta", {
-      posts,
-      tags: TAG_LIST,
-      galleryPhotos,
-    });
-  } catch (err) {
-    console.error(err);
-  }
-});
-
-fastify.get("/admin", async (request, reply) => {
-  return reply.viewAsync("admin.eta", {
-    tags: TAG_LIST,
-    posts: [],
-    hxAttribute: `hx-post=/posts`,
-  });
 });
 // tag page below
 fastify.get("/posts/tags/:tag", async (request, reply) => {
@@ -228,6 +191,55 @@ fastify.get("/posts/:postId/get-edit-form", async (request, reply) => {
     post,
     tags: TAG_LIST,
     hxAttribute: `hx-patch=/posts/${request.params.postId}`,
+  });
+});
+
+const authenticate = { realm: "myApp" };
+fastify.register(basicAuth, { validate, authenticate });
+async function validate(username, password, req, reply) {
+  if (username !== "asmitt8373" || password !== "1234") {
+    return new Error("Wrong Credentials");
+  }
+}
+
+// admin page select filter below
+fastify.get("/admin/posts/tag", async (request, reply) => {
+  try {
+    console.log(request.query);
+    const postsArr = await db.posts.get({
+      tags: request.query.tag,
+    });
+    const posts = postsArr.map((post) => {
+      const splitUrl = post.image_url.split("/upload/");
+      post.image_url = `${splitUrl[0]}/upload/c_fill,h_150,w_150/${splitUrl[1]}`;
+      return post;
+    });
+    console.log(posts);
+    const galleryPhotos = posts.map((post) => {
+      return {
+        href: post.image_url,
+        type: "image",
+        title: "",
+        description: "",
+      };
+    });
+    return reply.viewAsync("admin.eta", {
+      posts,
+      tags: TAG_LIST,
+      galleryPhotos,
+    });
+  } catch (err) {
+    console.error(err);
+  }
+});
+
+fastify.get("/admin", async (request, reply) => {
+  reply.header("WWW-Authenticate", "Basic realm='myApp'");
+  reply.statusCode = 401;
+  return reply.viewAsync("admin.eta", {
+    tags: TAG_LIST,
+    posts: [],
+    hxAttribute: `hx-post=/posts`,
   });
 });
 

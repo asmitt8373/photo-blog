@@ -14,12 +14,12 @@
         </svg>
       </div>
       <ul tabindex="0" class="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow">
-        <li><a href="/posts/tags/experimental">Experimental Exposures</a></li>
-        <li><a href="/posts/tags/wilderness">Into The Wild</a></li>
-        <li><a href="/posts/tags/places&spaces">Places&Spaces</a></li>
-        <li><a href="/posts/tags/seaside">Seaside Serenity</a></li>
-        <li><a href="/posts/tags/waterfalls">Waterfalls</a></li>
-        <li><a href="/posts/tags/black&white">B&W</a></li>
+        <li><a href="/posts/tags/Experimental">Experimental Exposures</a></li>
+        <li><a href="/posts/tags/Wilderness">Into The Wild</a></li>
+        <li><a href="/posts/tags/Places&Spaces">Places&Spaces</a></li>
+        <li><a href="/posts/tags/Seaside">Seaside Serenity</a></li>
+        <li><a href="/posts/tags/Waterfalls">Waterfalls</a></li>
+        <li><a href="/posts/tags/Black&White">B&W</a></li>
       </ul>
     </div>
   </div>

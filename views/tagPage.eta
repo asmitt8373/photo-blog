@@ -18,7 +18,7 @@
     });
   </script>
 
-  <div class="flex flex-wrap w-[90vw] gap-[30px] mx-auto">
+  <div class="flex flex-wrap w-[90vw] gap-[30px] mx-auto pl-[100px]">
 
     <%it.posts.forEach((post, index) => { %>
     <img data-gallery="gallery" data-type="image" onclick="photoGallery.openAt(<%= index %>)" class="glightbox mr-[20px] my-[20px] ml-[30px] object-cover w-[120px] h-[120px] basis-1/2  md:max-w-[260px] md:w-[260px] md:max-h-[260px] md:h-[260px] md:basis-1/4" src="<%= post.image_url%>" alt="<%= post.caption%>" data-gallery="gallery1" />
