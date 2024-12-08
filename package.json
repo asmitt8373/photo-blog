@@ -33,6 +33,7 @@
     "tailwindcss": "^3.4.10"
   },
   "devDependencies": {
+    "@fastify/env": "^4.4.0",
     "daisyui": "^4.12.10"
   }
 }

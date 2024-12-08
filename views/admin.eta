@@ -8,7 +8,7 @@
     <form onsubmit="event.preventDefault()" class="flex justify-between items-center w-[300px]" hx-target="body" hx-trigger="click from:#submit-btn" hx-swap="innerHTML">
       <select id="tag" hx-get="/admin/posts/tag" hx-target="body" hx-boost="true" hx-vals="js:{tag: document.querySelector('#tag').value}" class="select select-bordered col-span-1" name="tags">
         <% it.tags.forEach(function(tag){ %>
-        <option value="<%= tag%>" <%= it.post?.tags === tag ? 'selected' : '' %>><%= tag %></option>
+        <option value="<%= tag%>" <%= it.selectedTag === tag ? 'selected' : '' %>><%= tag %></option>
         <% }) %>
       </select>
     </form>

@@ -5,6 +5,7 @@
 
 
 <body class="p-8">
+
   <%~ include("partials/navigation.eta", {...it,homePage: true})%>
   <div class="grid grid-cols-2 max-w-[1300px] mx-auto">
     <div class="w-[450px] h-[500px] mt-[20px] relative group">
@@ -62,5 +63,6 @@
     </div>
   </div>
 </body>
+<%~ include("partials/footer.eta", it)%>
 
 </html>

@@ -1,5 +1,6 @@
 // Import the framework and instantiate it
 import Fastify from "fastify";
+import fastifyEnv from "@fastify/env";
 import fastifyView from "@fastify/view";
 import { Eta } from "eta";
 import { db } from "./database/db.js";
@@ -27,10 +28,45 @@ fastify.register(fastifyView, {
   engine: {
     eta,
   },
-  templates: "./views",
+  templates: path.join(__dirname, "views"),
 });
 
 fastify.register(formBody);
+
+const schema = {
+  type: "object",
+  required: ["USERNAME", "PASSWORD"],
+  properties: {
+    USERNAME: {
+      type: "string",
+      default: "",
+    },
+    PASSWORD: {
+      type: "string",
+      default: "",
+    },
+  },
+};
+
+const options = {
+  dotenv: true,
+  schema,
+};
+
+fastify.register(fastifyEnv, options).ready((err) => {
+  if (err) console.error(err);
+});
+
+const authenticate = { realm: "myApp" };
+fastify.register(basicAuth, { validate, authenticate });
+async function validate(username, password, req, reply) {
+  if (username !== process.env.USERNAME || password !== process.env.PASSWORD) {
+    reply.header("authorization", "");
+    reply.header("WWW-Authenticate", "Basic realm='myApp'");
+    reply.statusCode = 401;
+    return reply.status(401).send("🙅🏻 nope");
+  }
+}
 
 const TAG_LIST = [
   // desert oasis
@@ -98,13 +134,14 @@ fastify.get("/posts/tags/:tag", async (request, reply) => {
         return {
           ...post,
           order: randomWholeNum(),
+          fullsize_image: post.image_url,
           image_url: `${splitUrl[0]}/upload/c_fill,h_300,w_300/${splitUrl[1]}`,
         };
       })
       .sort((a, b) => a.order - b.order);
-    const galleryPhotos = postsArr.map((post) => {
+    const galleryPhotos = posts.map((post) => {
       return {
-        href: post.image_url,
+        href: post.fullsize_image,
         type: "image",
         title: "",
         description: "",
@@ -194,14 +231,6 @@ fastify.get("/posts/:postId/get-edit-form", async (request, reply) => {
   });
 });
 
-const authenticate = { realm: "myApp" };
-fastify.register(basicAuth, { validate, authenticate });
-async function validate(username, password, req, reply) {
-  if (username !== "asmitt8373" || password !== "1234") {
-    return new Error("Wrong Credentials");
-  }
-}
-
 // admin page select filter below
 fastify.get("/admin/posts/tag", async (request, reply) => {
   try {
@@ -234,8 +263,19 @@ fastify.get("/admin/posts/tag", async (request, reply) => {
 });
 
 fastify.get("/admin", async (request, reply) => {
-  reply.header("WWW-Authenticate", "Basic realm='myApp'");
-  reply.statusCode = 401;
+  const authHeader = request.headers["authorization"];
+  if (!authHeader) {
+    reply.header("WWW-Authenticate", "Basic realm='myApp'");
+    reply.statusCode = 401;
+    return reply.status(401).send("🙅🏻 nope");
+  }
+
+  const base64String = authHeader?.split(" ")[1];
+  const auth = new Buffer(base64String, "base64").toString("ascii");
+  const [username, password] = auth.split(":");
+
+  validate(username, password, request, reply);
+
   return reply.viewAsync("admin.eta", {
     tags: TAG_LIST,
     posts: [],
