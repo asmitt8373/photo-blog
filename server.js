@@ -77,7 +77,9 @@ const TAG_LIST = [
   "Waterfalls",
   "Black&White",
 ];
-
+fastify.get("/health", (request, reply) => {
+  return reply.send("Okay");
+});
 fastify.get("/", async (request, reply) => {
   const NUMBER_OF_PHOTOS = 1;
   try {
