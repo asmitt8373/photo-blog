@@ -9,7 +9,8 @@
     "migrate": "node database/migrate.js",
     "reset": "node database/reset.js",
     "watch": "node database/watch.js",
-    "tailwind:css": "npx tailwindcss -i ./public/styles/tailwind.css -o ./public/styles/style.css --watch"
+    "tailwind:css": "npx tailwindcss -i ./public/styles/tailwind.css -o ./public/styles/style.css --watch",
+    "start": "nodemon server.js"
   },
   "keywords": [],
   "author": "",
