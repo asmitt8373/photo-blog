@@ -2,7 +2,7 @@
   "name": "portfolioprojects",
   "type": "module",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
     "dev": "nodemon server",
     "types": "node database/makeTypes.js",
