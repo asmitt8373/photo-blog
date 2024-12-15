@@ -55,7 +55,7 @@
 
     <div class="mt-[30px] flex justify-center items-center flex-1 w-64 group relative w-[650px] h-[500px]">
       <a href="/posts/tags/Black&White">
-        <img src="/public/img/b&w.jpg" class="object-cover w-[650px] h-[500px]" />
+        <img src="/public/img/bandw.jpg" class="object-cover w-[650px] h-[500px]" />
         <div class="opacity-0 group-hover:opacity-100 absolute ease-in-out duration-500 transition-opacity bottom-0 right-0 left-0 h-[60px] flex justify-center items-center bg-[rgba(0,0,0,.5)]">
           Black&White
         </div>
