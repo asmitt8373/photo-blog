@@ -10,9 +10,6 @@ import { fileURLToPath } from "url";
 import formBody from "@fastify/formbody";
 import basicAuth from "@fastify/basic-auth";
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
-
 const eta = new Eta();
 
 const fastify = Fastify({
@@ -20,7 +17,7 @@ const fastify = Fastify({
 });
 
 fastify.register(fastifyStatic, {
-  root: path.join(__dirname, "public"),
+  root: path.join("./", "public"),
   prefix: "/public/",
 });
 
@@ -28,7 +25,7 @@ fastify.register(fastifyView, {
   engine: {
     eta,
   },
-  templates: path.join(__dirname, "views"),
+  templates: path.join("./", "views"),
 });
 
 fastify.register(formBody);
