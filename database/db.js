@@ -1,19 +1,23 @@
 import { SQLiteDatabase } from "flyweightjs";
 import { join } from "path";
+import { fileURLToPath } from "url";
+import path from "path";
 import adaptor from "flyweight-sqlite";
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
-const path = (subPath) => join(import.meta.dirname, subPath);
+const _path = (subPath) => join(__dirname, subPath);
 
 const paths = {
-  sql: path("sql"),
-  tables: path("sql/tables.sql"),
-  views: path("views"),
-  types: path("db.d.ts"),
-  migrations: path("migrations"),
+  sql: _path("sql"),
+  tables: _path("sql/tables.sql"),
+  views: _path("views"),
+  types: _path("db.d.ts"),
+  migrations: _path("migrations"),
 };
 
 const database = new SQLiteDatabase({
-  db: path("app.db"),
+  db: _path("app.db"),
   adaptor,
   ...paths,
 });
