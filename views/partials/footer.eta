@@ -1,8 +1,8 @@
   <div class="text-center">
-    <div class="flex items-center justify-center mt-[240px]  mr-[40px]">
+    <div class="flex items-center justify-center mt-[80px] mr-[20px] xl:mt-[240px]  xl:mr-[40px]">
       <a href="https://www.instagram.com/austin_smittle/profilecard/?igsh=NTc4MTIwNjQ2YQ%3D%3D" target="_blank">
-        <img src="/public/img/instagram.png" class="w-[75px] h-[75px]" />
+        <img src="/public/img/instagram.png" class="w-[45px] h-[45px]" />
       </a>
     </div>
-    <small class="mb-[140px] mr-[40px]">Copyright Austin Smittle 2025</small>
+    <small class="mb-[50px] mr-[20px] xl:mb-[140px] xl:mr-[40px]">Copyright Austin Smittle 2025</small>
   </div>

@@ -2185,6 +2185,10 @@ html {
   margin: 80px;
 }
 
+.m-\[10px\] {
+  margin: 10px;
+}
+
 .mx-auto {
   margin-left: auto;
   margin-right: auto;
@@ -2263,6 +2267,42 @@ html {
   margin-top: 80px;
 }
 
+.mt-\[15px\] {
+  margin-top: 15px;
+}
+
+.ml-\[80px\] {
+  margin-left: 80px;
+}
+
+.ml-\[70px\] {
+  margin-left: 70px;
+}
+
+.ml-\[75px\] {
+  margin-left: 75px;
+}
+
+.mb-\[70px\] {
+  margin-bottom: 70px;
+}
+
+.mt-\[120px\] {
+  margin-top: 120px;
+}
+
+.mt-\[60px\] {
+  margin-top: 60px;
+}
+
+.mb-\[50px\] {
+  margin-bottom: 50px;
+}
+
+.mb-\[40px\] {
+  margin-bottom: 40px;
+}
+
 .flex {
   display: flex;
 }
@@ -2305,6 +2345,34 @@ html {
 
 .h-\[75px\] {
   height: 75px;
+}
+
+.h-\[200px\] {
+  height: 200px;
+}
+
+.h-\[20px\] {
+  height: 20px;
+}
+
+.h-\[150px\] {
+  height: 150px;
+}
+
+.h-\[45px\] {
+  height: 45px;
+}
+
+.h-\[10px\] {
+  height: 10px;
+}
+
+.h-4 {
+  height: 1rem;
+}
+
+.h-6 {
+  height: 1.5rem;
 }
 
 .w-10 {
@@ -2365,6 +2433,34 @@ html {
 
 .w-\[90vw\] {
   width: 90vw;
+}
+
+.w-\[150px\] {
+  width: 150px;
+}
+
+.w-\[250px\] {
+  width: 250px;
+}
+
+.w-\[200px\] {
+  width: 200px;
+}
+
+.w-\[125px\] {
+  width: 125px;
+}
+
+.w-\[45px\] {
+  width: 45px;
+}
+
+.w-4 {
+  width: 1rem;
+}
+
+.w-6 {
+  width: 1.5rem;
 }
 
 .max-w-\[1300px\] {
@@ -2483,6 +2579,11 @@ html {
   line-height: 2.5rem;
 }
 
+.text-2xl {
+  font-size: 1.5rem;
+  line-height: 2rem;
+}
+
 .opacity-0 {
   opacity: 0;
 }
@@ -2534,6 +2635,10 @@ html {
 }
 
 @media (min-width: 1280px) {
+  .xl\:m-\[20px\] {
+    margin: 20px;
+  }
+
   .xl\:ml-\[120px\] {
     margin-left: 120px;
   }
@@ -2550,12 +2655,48 @@ html {
     margin-top: 30px;
   }
 
+  .xl\:mb-\[140px\] {
+    margin-bottom: 140px;
+  }
+
+  .xl\:mr-\[40px\] {
+    margin-right: 40px;
+  }
+
+  .xl\:mt-\[240px\] {
+    margin-top: 240px;
+  }
+
+  .xl\:ml-\[275px\] {
+    margin-left: 275px;
+  }
+
+  .xl\:mb-\[80px\] {
+    margin-bottom: 80px;
+  }
+
+  .xl\:mt-\[-8px\] {
+    margin-top: -8px;
+  }
+
   .xl\:h-\[500px\] {
     height: 500px;
   }
 
   .xl\:h-\[60px\] {
     height: 60px;
+  }
+
+  .xl\:h-\[200px\] {
+    height: 200px;
+  }
+
+  .xl\:h-10 {
+    height: 2.5rem;
+  }
+
+  .xl\:h-8 {
+    height: 2rem;
   }
 
   .xl\:w-32 {
@@ -2574,7 +2715,33 @@ html {
     width: 650px;
   }
 
+  .xl\:w-\[150px\] {
+    width: 150px;
+  }
+
+  .xl\:w-\[100px\] {
+    width: 100px;
+  }
+
+  .xl\:w-10 {
+    width: 2.5rem;
+  }
+
+  .xl\:w-8 {
+    width: 2rem;
+  }
+
   .xl\:max-w-\[1300px\] {
     max-width: 1300px;
+  }
+
+  .xl\:text-3xl {
+    font-size: 1.875rem;
+    line-height: 2.25rem;
+  }
+
+  .xl\:text-4xl {
+    font-size: 2.25rem;
+    line-height: 2.5rem;
   }
 }

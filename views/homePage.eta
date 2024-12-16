@@ -4,58 +4,59 @@
 <%~ include("partials/head.eta")%>
 
 
+
 <body class="p-8">
 
   <%~ include("partials/navigation.eta", {...it,homePage: true})%>
   <div class="grid grid-cols-2 xl:max-w-[1300px] mx-auto">
-    <div class="xl:w-[450px] xl:h-[500px] xl:mt-[20px] relative group">
+    <div class="w-[125px] h-[150px] xl:w-[450px] xl:h-[500px] xl:mt-[20px] relative group">
       <a href="/posts/tags/Experimental">
-        <img src="/public/img/experiment.jpg" class=" xl:w-[450px] xl:h-[500px]" />
-        <div class="opacity-0 group-hover:opacity-100 absolute ease-in-out duration-500 transition-opacity bottom-0 right-0 left-0 h-[60px] flex justify-center items-center bg-[rgba(0,0,0,.5)]">
+        <img src="/public/img/experiment.jpg" class="w-[125px] h-[150px] xl:w-[450px] xl:h-[500px]" />
+        <div class="opacity-0 group-hover:opacity-100 absolute ease-in-out duration-500 transition-opacity bottom-0 right-0 left-0 h-[20px] xl:h-[60px] flex justify-center items-center bg-[rgba(0,0,0,.5)]">
           Experimental Exposures
         </div>
       </a>
     </div>
 
-    <div class=" flex justify-center items-center flex-1 xl:w-32 group relative xl:w-[650px] xl:h-[500px] xl:mt-[20px] xl:mr-[300px]">
+    <div class=" flex justify-center items-center flex-1 xl:w-32 group relative w-[200px] h-[150px] xl:w-[650px] xl:h-[500px] xl:mt-[20px] xl:mr-[300px]">
       <a href="/posts/tags/Seaside">
-        <img src="/public/img/beach.jpg" class=" xl:w-[650px] xl:h-[500px]" />
+        <img src="/public/img/beach.jpg" class="w-[200px] h-[150px] xl:w-[650px] xl:h-[500px]" />
         <div class="opacity-0 group-hover:opacity-100 absolute ease-in-out duration-500 transition-opacity bottom-0 right-0 left-0 h-[60px] flex justify-center items-center bg-[rgba(0,0,0,.5)]">
           Seaside Serenity
         </div>
       </a>
     </div>
 
-    <div class="xl:mt-[30px] flex justify-center items-center flex-1 xl:w-32 group relative xl:w-[650px] xl:h-[500px]">
+    <div class="mt-[15px] xl:mt-[30px] flex justify-center items-center flex-1 xl:w-32 group relative w-[200px] h-[150px] xl:w-[650px] xl:h-[500px]">
       <a href="/posts/tags/Wilderness">
-        <img src="/public/img/mountain.jpg" class="object-cover xl:w-[650px] xl:h-[500px]" />
+        <img src="/public/img/mountain.jpg" class="object-cover w-[200px] h-[150px] xl:w-[650px] xl:h-[500px]" />
         <div class="opacity-0 group-hover:opacity-100 absolute ease-in-out duration-500 transition-opacity bottom-0 right-0 left-0 xl:h-[60px] flex justify-center items-center bg-[rgba(0,0,0,.5)]">
           Into The Wild
         </div>
       </a>
     </div>
 
-    <div class="xl:mt-[30px] xl:ml-[120px] flex justify-center items-center flex-1 xl:w-64 group relative xl:w-[450px] xl:h-[500px]">
+    <div class="mt-[15px] xl:mt-[30px] ml-[75px] xl:ml-[120px] flex justify-center items-center flex-1 xl:w-64 group relative w-[125px] h-[150px] xl:w-[450px] xl:h-[500px]">
       <a href="/posts/tags/Places&Spaces">
-        <img src="/public/img/skate.jpg" class="object-cover xl:w-[450px] xl:h-[500px]" />
+        <img src="/public/img/skate.jpg" class="object-cover w-[125px] h-[150px] xl:w-[450px] xl:h-[500px]" />
         <div class="opacity-0 group-hover:opacity-100 absolute ease-in-out duration-500 transition-opacity bottom-0 right-0 left-0 xl:h-[60px] flex justify-center items-center bg-[rgba(0,0,0,.5)]">
           Places&Spaces
         </div>
       </a>
     </div>
 
-    <div class="flex justify-center items-center flex-1 xl:w-64 group relative xl:w-[450px] xl:h-[500px] xl:mt-[30px]">
+    <div class="flex justify-center items-center flex-1 xl:w-64 group relative w-[125px] h-[150px] xl:w-[450px] xl:h-[500px] mt-[15px] xl:mt-[30px]">
       <a href="/posts/tags/Waterfalls">
-        <img src="/public/img/waterfall.jpg" class="object-cover xl:w-[450px] xl:h-[500px]" />
+        <img src="/public/img/waterfall.jpg" class="object-cover w-[125px] h-[150px] xl:w-[450px] xl:h-[500px]" />
         <div class="opacity-0 group-hover:opacity-100 absolute ease-in-out duration-500 transition-opacity bottom-0 right-0 left-0 xl:h-[60px] flex justify-center items-center bg-[rgba(0,0,0,.5)]">
           Waterfalls
         </div>
       </a>
     </div>
 
-    <div class="xl:mt-[30px] flex justify-center items-center flex-1 xl:w-64 group relative xl:w-[650px] xl:h-[500px]">
+    <div class="mt-[15px] xl:mt-[30px] flex justify-center items-center flex-1 xl:w-64 group relative w-[200px] h-[150px] xl:w-[650px] xl:h-[500px]">
       <a href="/posts/tags/Black&White">
-        <img src="/public/img/bandw.jpg" class="object-cover xl:w-[650px] xl:h-[500px]" />
+        <img src="/public/img/bandw.jpg" class="object-cover w-[200px] h-[150px] xl:w-[650px] xl:h-[500px]" />
         <div class="opacity-0 group-hover:opacity-100 absolute ease-in-out duration-500 transition-opacity bottom-0 right-0 left-0 xl:h-[60px] flex justify-center items-center bg-[rgba(0,0,0,.5)]">
           Black&White
         </div>
