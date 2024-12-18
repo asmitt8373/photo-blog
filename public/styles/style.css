@@ -2483,6 +2483,10 @@ html {
   width: 60px;
 }
 
+.w-\[90px\] {
+  width: 90px;
+}
+
 .max-w-\[1300px\] {
   max-width: 1300px;
 }
