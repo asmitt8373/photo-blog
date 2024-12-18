@@ -2,6 +2,12 @@
 <html lang="en">
 
 <%~ include("partials/head.eta")%>
+<% /* <style>
+  * {
+    border-width: 2px;
+    border-color: red
+  }
+</style> */ %>
 
 <body class="p-8" data-gallery-photos="<%= JSON.stringify(it.galleryPhotos) %>">
   <%~ include("partials/navigation.eta", it)%>
@@ -13,10 +19,10 @@
     });
   </script>
 
-  <div class="flex flex-wrap w-[90vw] gap-[30px] mx-auto pl-[100px]">
+  <div class="flex flex-wrap w-[100vw] xl:w-[90vw] gap-[30px] mx-auto xl:pl-[100px]">
 
     <%it.posts.forEach((post, index) => { %>
-    <img data-gallery="gallery" data-type="image" onclick="photoGallery.openAt(<%= index %>)" class="glightbox xl:mr-[20px] xl:my-[20px] xl:ml-[30px] object-cover w-[90px] h-[90px] basis-1/2  xl:max-w-[260px] xl:w-[260px] xl:max-h-[260px] xl:h-[260px] basis-1/4" src="<%= post.image_url%>" alt="<%= post.caption%>" data-gallery="gallery1" />
+    <img data-gallery="gallery" data-type="image" onclick="photoGallery.openAt(<%= index %>)" class="glightbox xl:mr-[20px] xl:my-[20px] xl:ml-[30px] object-cover w-[70px] h-[70px] basis-1/4  xl:max-w-[260px] xl:w-[260px] xl:max-h-[260px] xl:h-[260px] xl:basis-1/4" src="<%= post.image_url%>" alt="<%= post.caption%>" data-gallery="gallery1" />
     <%})%>
   </div>
   <%~ include("partials/footer.eta", it)%>
