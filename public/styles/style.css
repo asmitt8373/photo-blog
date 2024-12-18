@@ -2383,6 +2383,10 @@ html {
   height: 80px;
 }
 
+.h-\[100px\] {
+  height: 100px;
+}
+
 .w-10 {
   width: 2.5rem;
 }
