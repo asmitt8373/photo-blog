@@ -2379,6 +2379,10 @@ html {
   height: 90px;
 }
 
+.h-\[80px\] {
+  height: 80px;
+}
+
 .w-10 {
   width: 2.5rem;
 }
