@@ -12,7 +12,7 @@
     <div class="w-[125px] h-[150px] xl:w-[450px] xl:h-[500px] xl:mt-[20px] relative group">
       <a href="/posts/tags/Experimental">
         <img src="/public/img/experiment.jpg" class="w-[125px] h-[150px] xl:w-[450px] xl:h-[500px]" />
-        <div class="text-white  xl:text-l xl:opacity-0 xl:group-hover:opacity-100 xl:absolute ease-in-out duration-500 xl:transition-opacity xl:bottom-0 xl:right-0 xl:left-0 xl:h-[20px] xl:h-[60px] flex justify-center items-center xl:bg-[rgba(0,0,0,.5)]">
+        <div class="text-white  text-l opacity-0 xl:group-hover:opacity-100 absolute ease-in-out duration-500 transition-opacity bottom-0 right-0 left-0 h-[60px] flex justify-center items-center bg-[rgba(0,0,0,.5)]">
           Experimental Exposures
         </div>
       </a>
