@@ -2859,6 +2859,10 @@ html {
     flex-basis: 25%;
   }
 
+  .xl\:gap-\[30px\] {
+    gap: 30px;
+  }
+
   .xl\:bg-\[rgba\(0\2c 0\2c 0\2c \.5\)\] {
     background-color: rgba(0,0,0,.5);
   }
