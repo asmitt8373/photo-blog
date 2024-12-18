@@ -2701,6 +2701,10 @@ html {
 }
 
 @media (min-width: 1280px) {
+  .xl\:visible {
+    visibility: visible;
+  }
+
   .xl\:absolute {
     position: absolute;
   }
