@@ -21,7 +21,7 @@
     <div class=" flex justify-center items-center flex-1 xl:w-32 group relative w-[200px] h-[150px] xl:w-[650px] xl:h-[500px] xl:mt-[20px] xl:mr-[300px]">
       <a href="/posts/tags/Seaside">
         <img src="/public/img/beach.jpg" class="w-[200px] h-[150px] xl:w-[650px] xl:h-[500px]" />
-        <div class="text-white opacity-0 group-hover:opacity-100 absolute ease-in-out duration-500 transition-opacity bottom-0 right-0 left-0 h-[20px] xl:h-[60px] flex justify-center items-center bg-[rgba(0,0,0,.5)]">
+        <div class="text-white opacity-0 xl:group-hover:opacity-100 absolute ease-in-out duration-500 transition-opacity bottom-0 right-0 left-0 h-[20px] xl:h-[60px] flex justify-center items-center bg-[rgba(0,0,0,.5)]">
           Seaside Serenity
         </div>
       </a>
