@@ -2303,6 +2303,14 @@ html {
   margin-bottom: 40px;
 }
 
+.mb-\[15px\] {
+  margin-bottom: 15px;
+}
+
+.mb-\[30px\] {
+  margin-bottom: 30px;
+}
+
 .flex {
   display: flex;
 }
@@ -2389,6 +2397,10 @@ html {
 
 .h-\[70px\] {
   height: 70px;
+}
+
+.h-\[25px\] {
+  height: 25px;
 }
 
 .w-10 {
@@ -2783,6 +2795,10 @@ html {
     margin-right: 20px;
   }
 
+  .xl\:hidden {
+    display: none;
+  }
+
   .xl\:h-\[500px\] {
     height: 500px;
   }
@@ -2896,6 +2912,11 @@ html {
   .xl\:text-4xl {
     font-size: 2.25rem;
     line-height: 2.5rem;
+  }
+
+  .xl\:text-white {
+    --tw-text-opacity: 1;
+    color: rgb(255 255 255 / var(--tw-text-opacity));
   }
 
   .xl\:opacity-0 {
