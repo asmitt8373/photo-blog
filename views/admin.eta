@@ -2,7 +2,7 @@
 <html lang="en">
 <%~ include("partials/head.eta")%>
 
-<body>
+<body class="bg-black">
   <%~ include("partials/form.eta", it)%>
   <div class="overflow-x-auto w-[600px] mx-auto">
     <form onsubmit="event.preventDefault()" class="flex justify-between items-center w-[300px]" hx-target="body" hx-trigger="click from:#submit-btn" hx-swap="innerHTML">

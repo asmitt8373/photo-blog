@@ -24,7 +24,7 @@
      </div>
    </div>
    <div class="flex-1 justify-center xl:w-[100px]">
-     <h1 class="text-3xl xl:text-4xl">Austin Smittle</h1>
+     <h1 class="text-3xl xl:text-4xl text-center">Austin Smittle</h1>
    </div>
  </div>
  </ul>
