@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="bg-black">
 
 <%~ include("partials/head.eta")%>
 

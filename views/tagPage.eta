@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="bg-black">
 
 <%~ include("partials/head.eta")%>
 <% /* <style>
@@ -9,7 +9,7 @@
   }
 </style> */ %>
 
-<body class="p-8 bg-black" data-gallery-photos="<%= JSON.stringify(it.galleryPhotos) %>">
+<body class="p-8" data-gallery-photos="<%= JSON.stringify(it.galleryPhotos) %>">
   <%~ include("partials/navigation.eta", it)%>
   <script defer>
     const body = document.querySelector("body").dataset;

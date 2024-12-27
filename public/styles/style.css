@@ -2515,6 +2515,10 @@ html {
   width: 110vw;
 }
 
+.w-full {
+  width: 100%;
+}
+
 .max-w-\[1300px\] {
   max-width: 1300px;
 }
